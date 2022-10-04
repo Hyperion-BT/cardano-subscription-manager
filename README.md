@@ -1,12 +1,12 @@
-# PicoSwap
+# Cardano Subscription Manager
 
-PicoSwap is a Cardano atomic swap DApp. PicoSwap uses the [Helios](https://github.com/Hyperion-BT/Helios) library for the Smart Contract and Tx logic, and [Preact/Htm](https://preactjs.com/guide/v10/getting-started#alternatives-to-jsx) as a minimal UI framework.
+This is a Cardano DApp for creating and managing regular interval subscriptions, using the [Helios](https://github.com/Hyperion-BT/Helios) library for the Smart Contract and Tx logic, and [Preact/Htm](https://preactjs.com/guide/v10/getting-started#alternatives-to-jsx) library as a minimal UI framework.
 
 This repository serves as a template for building Cardano DApps using only client-side JavaScript.
 
-PicoSwap doesn't use any build-steps. The development files, including those of dependencies, are served directly to the client. This approach was chosen in order to maximize auditability (it should be as easy as possible to verify the correct implementation of PicoSwap), and minimize the number of pieces of software that must be blindly trusted (ideally only your browser, wallet, and the Cardano-network itself). In the future we envision that PicoSwap will be hosted using IPFS and that it will query the blockchain using only decentralized APIs.
+The Cardano Subscription Manager doesn't use any build-steps. The development files, including those of dependencies, are served directly to the client. This approach was chosen in order to maximize auditability (it should be as easy as possible to verify the correct implementation of a DApp), and minimize the number of pieces of software that must be blindly trusted (ideally only your browser, wallet, and the Cardano-network itself).
 
-Currently PicoSwap only works with the Eternl wallet (Chrome) connected to the Cardano preview testnet. Please raise a github issue if you would like to see another wallet supported.
+This DApp Currently only works with the Eternl wallet (Chrome) connected to the Cardano preview testnet. Please raise a github issue if you would like to see another wallet/network supported. This is not so difficult to do, but if nobody cares about this DApp then we're not going to put in the effort.
 
 ## Deno as JavaScript language server for development
 We recommend using Deno as a language server as it supports reading type annotations from external modules.
