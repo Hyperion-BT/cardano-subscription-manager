@@ -552,7 +552,7 @@ function App(props) {
                         <br/>
                         <p>This DApp is 100% client-side, powered by the <${Link} href="https://github.com/hyperion-bt/Helios" text="Helios"/> library.</p>
                         <br/>
-                        <p>Right now CaSuMa only works with the <${Link} href="https://chrome.google.com/webstore/detail/eternl/kmhcihpebfmpgmihbkipmjlmmioameka" text="Eternl"/> wallet, and only with the preview testnet. We will expand this soon.</p>
+                        <p>Right now Cardano Subscription Manager only works with the <${Link} href="https://chrome.google.com/webstore/detail/eternl/kmhcihpebfmpgmihbkipmjlmmioameka" text="Eternl"/> wallet, and only with the preview testnet. We will expand this soon.</p>
                         <br/>
                         <p>Connect your wallet to get started.</p>
                     </div>
