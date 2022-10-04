@@ -6,7 +6,7 @@ This repository serves as a template for building Cardano DApps using only clien
 
 The Cardano Subscription Manager doesn't use any build-steps. The development files, including those of dependencies, are served directly to the client. This approach was chosen in order to maximize auditability (it should be as easy as possible to verify the correct implementation of a DApp), and minimize the number of pieces of software that must be blindly trusted (ideally only your browser, wallet, and the Cardano-network itself).
 
-This DApp Currently only works with the Eternl wallet (Chrome) connected to the Cardano preview testnet. Please raise a github issue if you would like to see another wallet/network supported. This is not so difficult to do, but if nobody cares about this DApp then we're not going to put in the effort.
+This DApp currently only works with the Eternl wallet (Chrome) connected to the Cardano preview testnet. Please raise a github issue if you would like to see another wallet/network supported. This is not so difficult to do, but if nobody cares about this DApp then we're not going to put in the effort.
 
 ## Deno as JavaScript language server for development
 We recommend using Deno as a language server as it supports reading type annotations from external modules.
