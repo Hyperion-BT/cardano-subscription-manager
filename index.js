@@ -278,10 +278,8 @@ function App(props) {
             });
 
             tx.addOutput(output);
-
-            tx.setChangeAddress(changeAddress);
             
-            await tx.finalize(network.params, spareUtxos);
+            await tx.finalize(network.params, changeAddress, spareUtxos);
 
             setWaitMessage("Waiting for wallet signature...");
 
@@ -289,9 +287,7 @@ function App(props) {
 
             setWaitMessage("Verifying signature...");
 
-            for (const pkw of pkws) {
-                tx.addSignature(pkw);
-            }
+            tx.addSignatures(pkws);
 
             setWaitMessage("Submitting transaction...");
 
@@ -342,8 +338,6 @@ function App(props) {
 
             const changeAddress = walletState.getChangeAddress();
 
-            tx.setChangeAddress(changeAddress);
-
             // conserve the number of asset utxos
             for (const utxo of contract.utxos) {
                 const output = new TxOutput(
@@ -354,13 +348,13 @@ function App(props) {
                 tx.addOutput(output);
             }
 
-            tx.setCollateralInput(walletState.pickCollateral());
+            tx.addCollateral(walletState.pickCollateral());
 
-            tx.addRequiredSigner(contract.customer);
+            tx.addSigner(contract.customer);
 
-            tx.addScript(getCompiledProgram());
+            tx.attachScript(getCompiledProgram());
 
-            await tx.finalize(network.params, spareUtxos);
+            await tx.finalize(network.params, changeAddress, spareUtxos);
 
             setWaitMessage("Waiting for wallet signature...");
             
@@ -371,9 +365,8 @@ function App(props) {
             const pkws = await wallet.signTx(tx);
 
             setWaitMessage("Verifying signature...");
-            for (const pkw of pkws) {
-                tx.addSignature(pkw);
-            }
+
+            tx.addSignatures(pkws);
 
             setWaitMessage("Submitting transaction...");
 
@@ -410,7 +403,7 @@ function App(props) {
                 tx.addInput(utxo, new IntData(42n)); // dummy redeemer
             }
 
-            tx.addScript(getCompiledProgram());
+            tx.attachScript(getCompiledProgram());
 
             const remainingFunds = contract.funds.sub(contract.price);
 
@@ -437,18 +430,18 @@ function App(props) {
             // utxo for vendor
             tx.addOutput(new TxOutput(changeAddress, contract.price));
 
-            // send any change back to the buyer (used to cover fee)
-            tx.setChangeAddress(changeAddress);
+            
 
-            tx.addRequiredSigner(contract.vendor);
+            tx.addSigner(contract.vendor);
 
-            tx.setCollateralInput(walletState.pickCollateral());
+            tx.addCollateral(walletState.pickCollateral());
 
-            tx.validFrom(network.params.timeToSlot(BigInt(new Date().getTime())));
+            tx.validFrom(new Date());
 
             //console.log(tx.dump());
 
-            await tx.finalize(network.params, spareUtxos);
+            // send any change back to the buyer (used to cover fee)
+            await tx.finalize(network.params, changeAddress, spareUtxos);
 
             //console.log(tx.dump());
 
@@ -457,9 +450,8 @@ function App(props) {
             const pkws = await wallet.signTx(tx);
 
             setWaitMessage("Verifying signature...");
-            for (const pkw of pkws) {
-                tx.addSignature(pkw);
-            }
+
+            tx.addSignatures(pkws);
 
             setWaitMessage("Submitting transaction...");
 
