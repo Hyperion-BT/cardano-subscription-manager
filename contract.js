@@ -27,7 +27,7 @@ struct Datum {
     }
 
     func interval_passed(self, tx: Tx) -> Bool {
-        tx.now() >= self.next_withdrawal
+        tx.time_range.start == self.next_withdrawal
     }
 
     func next_datum(self, remaining_funds: Value) -> Datum {
