@@ -1,6 +1,6 @@
 # Cardano Subscription Manager
 
-This is a Cardano DApp for creating and managing regular interval subscriptions, using the [Helios](https://github.com/Hyperion-BT/Helios) library for the Smart Contract and Tx logic, and [Preact/Htm](https://preactjs.com/guide/v10/getting-started#alternatives-to-jsx) library as a minimal UI framework.
+This is a Cardano DApp for creating and managing regular interval subscriptions, using the [Helios](https://github.com/hyperion-bt/helios) library for the Smart Contract and Tx logic, and [Preact/Htm](https://preactjs.com/guide/v10/getting-started#alternatives-to-jsx) library as a minimal UI framework.
 
 This repository serves as a template for building Cardano DApps using only client-side JavaScript.
 

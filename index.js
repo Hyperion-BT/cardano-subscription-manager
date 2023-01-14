@@ -542,7 +542,7 @@ function App(props) {
                     <div class="content">
                         <p>Here you can manage simple Cardano-based regular interval subscriptions, either as subscriber or as vendor.</p>
                         <br/>
-                        <p>This DApp is 100% client-side, powered by the <${Link} href="https://github.com/hyperion-bt/Helios" text="Helios"/> library.</p>
+                        <p>This DApp is 100% client-side, powered by the <${Link} href="https://github.com/hyperion-bt/helios" text="Helios"/> library.</p>
                         <br/>
                         <p>Right now Cardano Subscription Manager only works with the <${Link} href="https://chrome.google.com/webstore/detail/eternl/kmhcihpebfmpgmihbkipmjlmmioameka" text="Eternl"/> wallet, and only with the preview testnet. We will expand this soon.</p>
                         <br/>
